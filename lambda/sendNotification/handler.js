@@ -5,16 +5,18 @@ const sns = new AWS.SNS({ region: 'ap-northeast-2' });
 
 module.exports.hello = async (event) => {
   console.log(event['Records'][0]['body'])
+  console.log(event)
   let params = {
-    Message: 'MESSG_TEXT', /* required */
+    Message: 'MESSAGE_TEXT', /* required */
     TopicArn: process.env.SNS_TOPIC
 
   };
-  sns.publish(params, function (err, data) {
+  let response = sns.publish(params, function (err, data) {
+    console.log(response)
     if (err) console.log(err, err.stack);
     else console.log(data);
   });
-  return Message
+  return response
   //hello anyone?
   //hi
   //hi?

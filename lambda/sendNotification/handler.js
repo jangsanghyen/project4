@@ -4,7 +4,9 @@ const AWS = require('aws-sdk');
 const sns = new AWS.SNS({ region: 'ap-northeast-2' });
 
 module.exports.hello = async (event) => {
+  
   console.log(event['Records'][0]['body'])
+
   console.log(event)
   let params = {
     Message: 'MESSAGE_TEXT', /* required */
@@ -24,6 +26,5 @@ module.exports.hello = async (event) => {
   //??  
   //? ?
   //???
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 };

@@ -1,6 +1,7 @@
 service: sendNotification 
 
-provider:   
+provider:
+
   name: aws   
   runtime: nodejs14.x   
   region: ap-northeast-2 
